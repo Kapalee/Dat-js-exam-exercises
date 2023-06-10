@@ -45,16 +45,22 @@ function countUsers(userData) {
   document.querySelector("#guest-count").textContent = guestCount;
 } */
 
-// Øvelse 3
+// Øvelse 4
+
+/* 1. Lav en funktion der indlæser JSON-filen `users.json` og gemmer listen i en global variabel.
+2. Lav en funktion der viser listen på websiden - vis kun aktive brugere.
+3. Lav en funktion der modtager `name`, `active` og `role`, opretter et `user` objekt med de tre properties, og tilføjer objektet til den globale liste. Listen på websiden opdateres hver gang, der oprettes et nyt objekt.
+*/
 
 "use strict";
 
 window.addEventListener("load", start);
 
+let userData = [];
+
 async function start() {
-  console.log("virker");
-  const userData = await getUsers();
-  showUsers(userData);
+  userData = await getUsers();
+  showUsers();
 }
 
 async function getUsers() {
@@ -63,12 +69,27 @@ async function getUsers() {
   return data;
 }
 
-function showUsers(userData) {
+function showUsers() {
   document.querySelector("#userlist").innerHTML = "";
   for (const user of userData) {
-    const html = `
-  <li>${user.name}, ${user.active}</li>
-  `;
-    document.querySelector("#userlist").insertAdjacentHTML("beforeend", html);
+    if (user.active === true) {
+      const html = `
+      <li> ${user.name} </li>
+      `;
+      document.querySelector("#userlist").insertAdjacentHTML("beforeend", html);
+    }
   }
 }
+
+function createUsers(name, active, role, id) {
+  const newUser = {
+    id: id,
+    name: name,
+    active: active,
+    role: role,
+  };
+  userData.push(newUser);
+  console.log(userData);
+  return newUser;
+}
+

@@ -1,4 +1,4 @@
-const teachers = [
+export const teachers = [
     {
         name: "Jane Smith",
         email: "jane.smith@email.com"

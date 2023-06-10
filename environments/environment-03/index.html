@@ -1,53 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Environment-03</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="shortcut icon" href="#" type="image/x-icon" />
-</head>
+  </head>
 
-<body>
+  <body>
     <h1>Environment-03</h1>
     <hr />
     <h2>Products</h2>
     <section>
-        <label for="select-sort-by">Sort by: </label>
-        <select id="select-sort-by">
-            <option value="" selected>Not selected</option>
-            <option value="name">Name</option>
-            <option value="price">Price</option>
-            <option value="inStock">In Stock</option>
-        </select>
+      <label for="select-sort-by">Sort by: </label>
+      <select id="select-sort-by">
+        <option value="" selected>Not selected</option>
+        <option value="name">Name</option>
+        <option value="price">Price</option>
+        <option value="inStock">In Stock</option>
+      </select>
     </section>
     <section id="list-container"></section>
 
     <hr />
 
     <main>
-        <section id="form-container">
-            <h2>Create new product</h2>
-            <form id="create-form" action="">
-                <label for="product-name">Name</label>
-                <input type="text" id="product-name" name="name" />
+      <section id="form-container">
+        <h2>Create new product</h2>
+        <form id="create-form" action="">
+          <label for="product-name">Name</label>
+          <input type="text" id="product-name" name="name" />
 
-                <label for="product-price">Price</label>
-                <input type="number" id="product-price" name="price" />
+          <label for="product-price">Price</label>
+          <input type="number" id="product-price" name="price" />
 
-                <label for="stock">In Stock</label>
-                <input type="checkbox" id="stock" name="inStock" />
+          <label for="stock">In Stock</label>
+          <input type="checkbox" id="stock" name="inStock" />
 
-                <button>Create New</button>
-            </form>
-        </section>
+          <button>Create New</button>
+        </form>
+      </section>
+      <section id="product-list"></section>
     </main>
 
-
-
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>

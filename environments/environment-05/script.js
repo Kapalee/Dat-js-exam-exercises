@@ -1,27 +1,69 @@
-"use strict";
+// øvelse 11
 
-// øvelse 14
+/*
+"use strict";
 
 import { courses } from "./courses.js";
 
-const listSelector = document.querySelector("#course-list");
 window.addEventListener("load", start);
 
 function start() {
-  sortByStartDate();
+  console.log("loooggg");
+  addNewCourse();
   showCourses();
 }
 
 function showCourses() {
-  listSelector.textContent = "";
-  courses.forEach(showCourse);
+  document.querySelector("#courses-list").innerHTML = "";
+  for (const course of courses) {
+    const html = `
+    <li>${course.name}, ${course.ectsPoints}, ${course.startDate}</li>
+    `;
+    document.querySelector("#courses-list").insertAdjacentHTML("beforeend", html);
+  }
 }
 
-function showCourse(courses) {
-  const courseHTML = `<li> ${courses.name}, ${courses.startDate}, ${courses.ectsPoints} pts</li>`;
-  listSelector.insertAdjacentHTML("#beforeend", courseHTML);
+function addNewCourse() {
+  const newCourse = {
+    name: "peter lund",
+    startDate: "2024-09-01",
+    endDate: "2025-01-31",
+    ectsPoints: 20,
+    maxStudents: 2,
+    teacher: "Peter Lind",
+  };
+
+  courses.push(newCourse);
+  console.log(courses);
+  return newCourse;
 }
 
-function sortByStartDate() {
-  courses.sort((a, b) => a.startDate.localeCompare(b.startDate));
+*/
+
+// øvelse 12
+
+"use strict";
+
+import { courses } from "./courses.js";
+
+window.addEventListener("load", start);
+
+function start() {
+  console.log("welcome");
+  sortByEctsPoints();
+  showCourses();
+}
+
+function showCourses() {
+  document.querySelector("#courses-list").innerHTML = "";
+  for (const course of courses) {
+    const html = `
+    <li> ${course.name}, ${course.ectsPoints}</li>
+    `;
+    document.querySelector("#courses-list").insertAdjacentHTML("beforeend", html);
+  }
+}
+
+function sortByEctsPoints() {
+  courses.sort((b, a) => a.ectsPoints - b.ectsPoints);
 }
